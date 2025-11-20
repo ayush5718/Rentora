@@ -13,7 +13,7 @@ import { ChatMessage } from '../types';
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Ready to transcend? Ask LUMI anything about the festival. ⚡️' }
+    { role: 'model', text: 'Ready to experience Rentora? Ask REN anything about the festival. ⚡️' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -64,7 +64,7 @@ const AIChat: React.FC = () => {
             <div className="bg-gradient-to-r from-fuchsia-900/50 to-purple-900/50 p-4 flex justify-between items-center border-b border-white/10">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-fuchsia-400 animate-pulse" />
-                <h3 className="font-heading font-bold text-white tracking-wider">LUMI AI</h3>
+                <h3 className="font-heading font-bold text-white tracking-wider">REN AI</h3>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-white/50 hover:text-white" data-hover="true">
                 <X className="w-5 h-5" />

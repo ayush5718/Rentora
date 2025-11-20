@@ -17,51 +17,51 @@ import { Artist } from './types';
 const LINEUP: Artist[] = [
   { 
     id: '1', 
-    name: 'Neon Void', 
-    genre: 'Cyberpunk Synth', 
+    name: 'Crystal Pulse', 
+    genre: 'Future Bass', 
     day: 'FRI 24', 
     image: 'https://images.pexels.com/photos/1649691/pexels-photo-1649691.jpeg?_gl=1*i3xa2i*_ga*MjE0NTQyMDk5Mi4xNzYzMDYyMDM3*_ga_8JE65Q40S6*czE3NjMxNTk5MjAkbzYkZzEkdDE3NjMxNjE2MjkkajUxJGwwJGgw',
-    description: 'Architects of the audible abyss, weaving synth-heavy tapestries that explore the boundaries between digital and organic consciousness.'
+    description: 'Masters of melodic bass drops and euphoric builds. Creating emotional journeys through powerful synths and heart-pounding rhythms that resonate deep within.'
   },
   { 
     id: '2', 
-    name: 'Data Mosh', 
-    genre: 'Glitch Hop', 
+    name: 'Quantum Flux', 
+    genre: 'Progressive House', 
     day: 'FRI 24', 
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000&auto=format&fit=crop',
-    description: 'Deconstructing the beat to rebuild it in high-definition chaos. Expect glitch textures, broken rhythms, and pure audio entropy.'
+    description: 'Building sonic landscapes that evolve and transform. Layered progressions that take listeners on an ascending journey through peaks and valleys of sound.'
   },
   { 
     id: '3', 
-    name: 'Ether Real', 
-    genre: 'Ethereal Techno', 
+    name: 'Midnight Echo', 
+    genre: 'Melodic Techno', 
     day: 'SAT 25', 
     image: 'https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000&auto=format&fit=crop',
-    description: 'Techno from a dimension of pure light. Hypnotic loops and ethereal vocals that float above a foundation of industrial bass.'
+    description: 'Where darkness meets melody. Hypnotic techno grooves infused with haunting melodies that create an atmosphere of mystery and movement.'
   },
   { 
     id: '4', 
-    name: 'Hyper Loop', 
-    genre: 'Drum & Bass', 
+    name: 'Velocity Shift', 
+    genre: 'Bass House', 
     day: 'SAT 25', 
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop',
-    description: 'High-velocity drum & bass that accelerates the heartbeat to match the tempo of the city\'s neon pulse.'
+    description: 'High-octane energy meets infectious grooves. Combining the best of house and bass music to create tracks that command the dance floor.'
   },
   { 
     id: '5', 
-    name: 'Digital Soul', 
-    genre: 'Deep House', 
+    name: 'Aurora Flow', 
+    genre: 'Chillwave', 
     day: 'SUN 26', 
     image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop',
-    description: 'Deep, resonant house music that finds the ghost in the machine, blending soulful samples with futuristic sound design.'
+    description: 'Dreamy soundscapes that wash over you like waves. Nostalgic vibes blended with modern production for a relaxing yet engaging experience.'
   },
   { 
     id: '6', 
-    name: 'Void Walker', 
-    genre: 'Dark Ambient', 
+    name: 'Shadow Realm', 
+    genre: 'Industrial Techno', 
     day: 'SUN 26', 
     image: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1000&auto=format&fit=crop',
-    description: 'Ambient soundscapes for the end of the world. A contemplative journey through dark matter and silence.'
+    description: 'Raw, uncompromising techno that hits hard. Mechanical rhythms and dark atmospheres designed for those who crave intensity and power.'
   },
 ];
 
@@ -123,21 +123,28 @@ const App: React.FC = () => {
   };
   
   return (
-    <div className="relative min-h-screen text-white selection:bg-[#4fb7b3] selection:text-black cursor-auto md:cursor-none overflow-x-hidden">
+    <div className="relative min-h-screen text-white selection:bg-[#ff6b9d] selection:text-black cursor-auto md:cursor-none overflow-x-hidden">
       <CustomCursor />
       <FluidBackground />
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 md:px-8 py-6 mix-blend-difference">
-        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50">LUMINA</div>
+        <div className="font-heading text-xl md:text-2xl font-bold tracking-tighter text-white cursor-default z-50">RENTORA</div>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-sm font-bold tracking-widest uppercase">
-          {['Lineup', 'Experience', 'Tickets'].map((item) => (
+          {['Artists', 'Journey', 'Access'].map((item) => (
             <button 
               key={item} 
-              onClick={() => scrollToSection(item.toLowerCase())}
-              className="hover:text-[#a8fbd3] transition-colors text-white cursor-pointer bg-transparent border-none"
+              onClick={() => {
+                const sectionMap: { [key: string]: string } = {
+                  'Artists': 'lineup',
+                  'Journey': 'experience',
+                  'Access': 'tickets'
+                };
+                scrollToSection(sectionMap[item] || item.toLowerCase());
+              }}
+              className="hover:text-[#ff8c42] transition-colors text-white cursor-pointer bg-transparent border-none"
               data-hover="true"
             >
               {item}
@@ -146,10 +153,10 @@ const App: React.FC = () => {
         </div>
         <button 
           onClick={() => scrollToSection('tickets')}
-          className="hidden md:inline-block border border-white px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
+          className="hidden md:inline-block border border-[#ff8c42] px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#ff8c42] hover:text-black transition-all duration-300 text-white cursor-pointer bg-transparent"
           data-hover="true"
         >
-          Get Tickets
+          Join Now
         </button>
 
         {/* Mobile Menu Toggle */}
@@ -168,22 +175,29 @@ const App: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-30 bg-[#31326f]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-30 bg-[#2d1b3d]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            {['Lineup', 'Experience', 'Tickets'].map((item) => (
+            {['Artists', 'Journey', 'Access'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-4xl font-heading font-bold text-white hover:text-[#a8fbd3] transition-colors uppercase bg-transparent border-none"
+                onClick={() => {
+                  const sectionMap: { [key: string]: string } = {
+                    'Artists': 'lineup',
+                    'Journey': 'experience',
+                    'Access': 'tickets'
+                  };
+                  scrollToSection(sectionMap[item] || item.toLowerCase());
+                }}
+                className="text-4xl font-heading font-bold text-white hover:text-[#ff8c42] transition-colors uppercase bg-transparent border-none"
               >
                 {item}
               </button>
             ))}
             <button 
               onClick={() => scrollToSection('tickets')}
-              className="mt-8 border border-white px-10 py-4 text-sm font-bold tracking-widest uppercase bg-white text-black"
+              className="mt-8 border border-[#ff8c42] px-10 py-4 text-sm font-bold tracking-widest uppercase bg-[#ff8c42] text-black hover:bg-[#ff6b9d] hover:border-[#ff6b9d] transition-colors"
             >
-              Get Tickets
+              Join Now
             </button>
             
             <div className="absolute bottom-10 flex gap-6">
@@ -204,17 +218,17 @@ const App: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="flex items-center gap-3 md:gap-6 text-xs md:text-base font-mono text-[#a8fbd3] tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm"
+            className="flex items-center gap-3 md:gap-6 text-xs md:text-base font-mono text-[#ff6b9d] tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 bg-black/20 px-4 py-2 rounded-full backdrop-blur-sm"
           >
-            <span>Tokyo</span>
-            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#4fb7b3] rounded-full animate-pulse"/>
+            <span>India</span>
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#ff8c42] rounded-full animate-pulse"/>
             <span>Oct 24-26</span>
           </motion.div>
 
           {/* Main Title */}
           <div className="relative w-full flex justify-center items-center">
             <GradientText 
-              text="LUMINA" 
+              text="RENTORA" 
               as="h1" 
               className="text-[15vw] md:text-[14vw] leading-[0.9] font-black tracking-tighter text-center" 
             />
@@ -240,7 +254,7 @@ const App: React.FC = () => {
             transition={{ delay: 0.8, duration: 1 }}
             className="text-base md:text-2xl font-light max-w-xl mx-auto text-white/90 leading-relaxed drop-shadow-lg px-4"
           >
-            An immersive audiovisual odyssey
+            Where sound meets spectacle in perfect harmony
           </motion.p>
         </motion.div>
 
@@ -256,8 +270,9 @@ const App: React.FC = () => {
               <div key={key} className="flex whitespace-nowrap shrink-0">
                 {[...Array(4)].map((_, i) => (
                   <span key={i} className="text-3xl md:text-7xl font-heading font-black px-8 flex items-center gap-4">
-                    LUMINA 2025 <span className="text-black text-2xl md:text-4xl">●</span> 
-                    VISUAL EUPHORIA <span className="text-black text-2xl md:text-4xl">●</span> 
+                    RHYTHM COLLECTIVE <span className="text-black text-2xl md:text-4xl">●</span> 
+                    INDIA OCT 24-26 <span className="text-black text-2xl md:text-4xl">●</span> 
+                    UNLEASH THE VIBE <span className="text-black text-2xl md:text-4xl">●</span> 
                   </span>
                 ))}
               </div>
@@ -271,8 +286,8 @@ const App: React.FC = () => {
         <div className="max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 px-4">
              <h2 className="text-5xl md:text-8xl font-heading font-bold uppercase leading-[0.9] drop-shadow-lg break-words w-full md:w-auto">
-              Sonic <br/> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a8fbd3] to-[#4fb7b3]">Waves</span>
+              Rhythm <br/> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff8c42] to-[#c44569]">Collective</span>
             </h2>
           </div>
 
@@ -287,7 +302,7 @@ const App: React.FC = () => {
       {/* EXPERIENCE SECTION */}
       <section id="experience" className="relative z-10 py-20 md:py-32 bg-black/20 backdrop-blur-sm border-t border-white/10 overflow-hidden">
         {/* Decorative blurred circle - Optimized */}
-        <div className="absolute top-1/2 right-[-20%] w-[50vw] h-[50vw] bg-[#4fb7b3]/20 rounded-full blur-[40px] pointer-events-none will-change-transform" style={{ transform: 'translateZ(0)' }} />
+        <div className="absolute top-1/2 right-[-20%] w-[50vw] h-[50vw] bg-[#ff6b9d]/20 rounded-full blur-[40px] pointer-events-none will-change-transform" style={{ transform: 'translateZ(0)' }} />
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
@@ -296,14 +311,14 @@ const App: React.FC = () => {
                 Beyond <br/> <GradientText text="REALITY" className="text-5xl md:text-8xl" />
               </h2>
               <p className="text-lg md:text-xl text-gray-200 mb-8 md:mb-12 font-light leading-relaxed drop-shadow-md">
-                Lumina isn't just a festival; it's a sensory expedition. We fuse cutting-edge audio technology with generative art to create a living, breathing ecosystem of sound.
+                Rentora transforms the ordinary into extraordinary. We blend immersive soundscapes with interactive visual experiences, crafting moments that resonate beyond the music.
               </p>
               
               <div className="space-y-6 md:space-y-8">
                 {[
-                  { icon: Globe, title: 'Starlight District', desc: 'Walk among 50ft tall light constructs.' },
-                  { icon: Zap, title: 'Neuro-Link Audio', desc: 'Haptic floors that sync with your heartbeat.' },
-                  { icon: Music, title: 'Infinite Stage', desc: 'AI-driven visuals that react to the crowd.' },
+                  { icon: Globe, title: 'Crystal Gardens', desc: 'Interactive installations that respond to movement and sound.' },
+                  { icon: Zap, title: 'Pulse Resonance', desc: 'Immersive audio systems that create physical vibrations.' },
+                  { icon: Music, title: 'Dynamic Canvas', desc: 'Real-time visual projections that evolve with the music.' },
                 ].map((feature, i) => (
                   <div
                     key={i} 
@@ -322,7 +337,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7 relative h-[400px] md:h-[700px] w-full order-1 lg:order-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#637ab9] to-[#4fb7b3] rounded-3xl rotate-3 opacity-30 blur-xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c44569] to-[#ff6b9d] rounded-3xl rotate-3 opacity-30 blur-xl" />
               <div className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000&auto=format&fit=crop" 
@@ -352,16 +367,16 @@ const App: React.FC = () => {
              <h2 className="text-5xl md:text-9xl font-heading font-bold opacity-20 text-white">
                ACCESS
              </h2>
-             <p className="text-[#a8fbd3] font-mono uppercase tracking-widest -mt-3 md:-mt-8 relative z-10 text-sm md:text-base">
-               Secure your frequency
+             <p className="text-[#ff6b9d] font-mono uppercase tracking-widest -mt-3 md:-mt-8 relative z-10 text-sm md:text-base">
+               Reserve your experience
              </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: 'Day Pass', price: '$149', color: 'white', accent: 'bg-white/5' },
-              { name: 'Weekend', price: '$349', color: 'teal', accent: 'bg-[#4fb7b3]/10 border-[#4fb7b3]/50' },
-              { name: 'Astral VIP', price: '$899', color: 'periwinkle', accent: 'bg-[#637ab9]/10 border-[#637ab9]/50' },
+              { name: 'Essential', price: '$149', color: 'white', accent: 'bg-white/5' },
+              { name: 'Premium', price: '$349', color: 'orange', accent: 'bg-[#ff8c42]/10 border-[#ff8c42]/50' },
+              { name: 'Elite Access', price: '$899', color: 'pink', accent: 'bg-[#ff6b9d]/10 border-[#ff6b9d]/50' },
             ].map((ticket, i) => {
               const isPurchasing = purchasingIndex === i;
               const isPurchased = purchasedIndex === i;
@@ -378,14 +393,14 @@ const App: React.FC = () => {
                   
                   <div className="flex-1">
                     <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-white">{ticket.name}</h3>
-                    <div className={`text-5xl md:text-6xl font-bold mb-8 md:mb-10 tracking-tighter ${ticket.color === 'white' ? 'text-white' : ticket.color === 'teal' ? 'text-[#4fb7b3]' : 'text-[#637ab9]'}`}>
+                    <div className={`text-5xl md:text-6xl font-bold mb-8 md:mb-10 tracking-tighter ${ticket.color === 'white' ? 'text-white' : ticket.color === 'orange' ? 'text-[#ff8c42]' : 'text-[#ff6b9d]'}`}>
                       {ticket.price}
                     </div>
                     <ul className="space-y-4 md:space-y-6 text-sm text-gray-200">
                       <li className="flex items-center gap-3"><Ticket className="w-5 h-5 text-gray-400" /> General Entry</li>
                       <li className="flex items-center gap-3"><MapPin className="w-5 h-5 text-gray-400" /> All Stages</li>
-                      {i > 0 && <li className="flex items-center gap-3 text-white"><Zap className={`w-5 h-5 text-[#a8fbd3]`} /> Expedited Entry</li>}
-                      {i > 1 && <li className="flex items-center gap-3 text-white"><Globe className={`w-5 h-5 text-[#4fb7b3]`} /> Backstage Lounge</li>}
+                      {i > 0 && <li className="flex items-center gap-3 text-white"><Zap className={`w-5 h-5 text-[#ff8c42]`} /> Expedited Entry</li>}
+                      {i > 1 && <li className="flex items-center gap-3 text-white"><Globe className={`w-5 h-5 text-[#ff6b9d]`} /> Backstage Lounge</li>}
                     </ul>
                   </div>
                   
@@ -394,7 +409,7 @@ const App: React.FC = () => {
                     disabled={isDisabled}
                     className={`w-full py-4 text-sm font-bold uppercase tracking-[0.2em] border border-white/20 transition-all duration-300 mt-8 group overflow-hidden relative 
                       ${isPurchased 
-                        ? 'bg-[#a8fbd3] text-black border-[#a8fbd3] cursor-default' 
+                        ? 'bg-[#ff6b9d] text-black border-[#ff6b9d] cursor-default' 
                         : isPurchasing 
                           ? 'bg-white/20 text-white cursor-wait'
                           : isDisabled 
@@ -430,7 +445,7 @@ const App: React.FC = () => {
       <footer className="relative z-10 border-t border-white/10 py-12 md:py-16 bg-black/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div>
-             <div className="font-heading text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-white">LUMINA</div>
+             <div className="font-heading text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-white">RENTORA</div>
              <div className="flex gap-2 text-xs font-mono text-gray-400">
                <span>created by @chanelluuh</span>
              </div>
@@ -459,7 +474,7 @@ const App: React.FC = () => {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-[#1a1b3b] border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-2xl shadow-[#4fb7b3]/10 group/modal"
+              className="relative w-full max-w-5xl bg-[#2d1b3d] border border-white/10 overflow-hidden flex flex-col md:flex-row shadow-2xl shadow-[#ff6b9d]/10 group/modal"
             >
               {/* Close Button */}
               <button
@@ -503,7 +518,7 @@ const App: React.FC = () => {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1b3b] via-transparent to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b3d] via-transparent to-transparent md:bg-gradient-to-r" />
               </div>
 
               {/* Content Side */}
@@ -514,7 +529,7 @@ const App: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
                 >
-                  <div className="flex items-center gap-3 text-[#4fb7b3] mb-4">
+                  <div className="flex items-center gap-3 text-[#ff8c42] mb-4">
                      <Calendar className="w-4 h-4" />
                      <span className="font-mono text-sm tracking-widest uppercase">{selectedArtist.day}</span>
                   </div>
@@ -523,7 +538,7 @@ const App: React.FC = () => {
                     {selectedArtist.name}
                   </h3>
                   
-                  <p className="text-lg text-[#a8fbd3] font-medium tracking-widest uppercase mb-6">
+                  <p className="text-lg text-[#ff6b9d] font-medium tracking-widest uppercase mb-6">
                     {selectedArtist.genre}
                   </p>
                   

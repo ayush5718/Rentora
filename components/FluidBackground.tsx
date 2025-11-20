@@ -53,13 +53,13 @@ const StarField = () => {
 
 const FluidBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-br from-[#31326f] via-[#28295c] to-[#1f2048]">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-br from-[#2d1b3d] via-[#3d2b4d] to-[#1d0f2d]">
       
       <StarField />
 
-      {/* Blob 1: Mint - Optimized Blur (60px -> 40px) and Animation Speed */}
+      {/* Blob 1: Pink - Optimized Blur (60px -> 40px) and Animation Speed */}
       <motion.div
-        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] bg-[#a8fbd3] rounded-full mix-blend-screen filter blur-[40px] opacity-30 will-change-transform"
+        className="absolute top-[-10%] left-[-10%] w-[90vw] h-[90vw] bg-[#ff6b9d] rounded-full mix-blend-screen filter blur-[40px] opacity-30 will-change-transform"
         animate={{
           x: [0, 50, -25, 0],
           y: [0, -25, 25, 0],
@@ -72,9 +72,9 @@ const FluidBackground: React.FC = () => {
         style={{ transform: 'translateZ(0)' }}
       />
 
-      {/* Blob 2: Teal */}
+      {/* Blob 2: Orange */}
       <motion.div
-        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] bg-[#4fb7b3] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
+        className="absolute top-[20%] right-[-20%] w-[100vw] h-[80vw] bg-[#ff8c42] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
         animate={{
           x: [0, -50, 25, 0],
           y: [0, 50, -25, 0],
@@ -87,9 +87,9 @@ const FluidBackground: React.FC = () => {
         style={{ transform: 'translateZ(0)' }}
       />
 
-      {/* Blob 3: Periwinkle */}
+      {/* Blob 3: Magenta */}
       <motion.div
-        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] bg-[#637ab9] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
+        className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] bg-[#c44569] rounded-full mix-blend-screen filter blur-[40px] opacity-20 will-change-transform"
         animate={{
           x: [0, 75, -75, 0],
           y: [0, -50, 50, 0],
